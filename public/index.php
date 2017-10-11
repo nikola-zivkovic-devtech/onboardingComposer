@@ -7,6 +7,3 @@
  */
 
 require_once '../bootstrap/bootstrap.php';
-
-
-echo $hi;
