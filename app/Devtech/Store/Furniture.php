@@ -2,7 +2,11 @@
 
 namespace Devtech\Store;
 
-class Furniture
+/**
+ * Class Furniture
+ * @abstract
+ */
+abstract class Furniture
 {
     public $name;
     public $price;

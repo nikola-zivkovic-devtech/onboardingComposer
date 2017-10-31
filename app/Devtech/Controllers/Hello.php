@@ -2,7 +2,11 @@
 
 namespace Devtech\Controllers;
 
-
+/**
+ * Class Hello
+ *
+ * Hello controller, renders the hello page.
+ */
 class Hello extends Controller
 {
     private $name;

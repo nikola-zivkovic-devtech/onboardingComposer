@@ -13,7 +13,7 @@ use Devtech\Enums\NamespacePaths;
 /**
  * class Store
  *
- * Controller that points to store handler classes.
+ * Controller that points to store handler classes and renders store item pages.
  */
 class Store extends Controller
 {

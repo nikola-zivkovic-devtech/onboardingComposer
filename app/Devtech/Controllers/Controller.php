@@ -2,8 +2,11 @@
 
 namespace Devtech\Controllers;
 
-
-class Controller
+/**
+ * Class Controller
+ * @abstract
+ */
+abstract class Controller
 {
     protected $twig;
 
@@ -12,4 +15,10 @@ class Controller
         $loader = new \Twig_Loader_Filesystem('../views');
         $this->twig = new \Twig_Environment($loader);
     }
+
+    /**
+     * Renders a view
+     * @abstract
+     */
+    abstract protected function renderView();
 }
