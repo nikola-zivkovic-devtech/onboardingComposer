@@ -4,17 +4,7 @@ require_once '../bootstrap/bootstrap.php';
 
 use Devtech\Helpers\Request;
 
-
-$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r)
-{
-    $r->addRoute('GET', '/[index]', 'Welcome');
-    $r->addRoute('GET', '/about', 'About');
-    $r->addRoute('GET', '/hello/{name:[a-zA-Z]+}', 'Hello');
-});
-
-$requestParams = Request::prepare();
-
-$routeInfo = $dispatcher->dispatch($requestParams['httpMethod'], $requestParams['uri']);
+$routeInfo = $dispatcher->dispatch(Request::getHttpMethod(), Request::getUri());
 
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
