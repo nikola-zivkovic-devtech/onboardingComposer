@@ -19,9 +19,9 @@ class Store extends Controller
 {
     private $furnitureItem;
 
-    public function __construct($className)
+    public function __construct($className, $twig)
     {
-        parent::__construct();
+        parent::__construct($twig);
 
         $className = NamespacePaths::STORE_PATH . $className;
         $this->furnitureItem = new $className($this->twig);

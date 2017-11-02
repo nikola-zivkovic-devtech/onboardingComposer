@@ -10,10 +10,9 @@ abstract class Controller
 {
     protected $twig;
 
-    public function __construct()
+    public function __construct(\Twig_Environment $twig)
     {
-        $loader = new \Twig_Loader_Filesystem('../views');
-        $this->twig = new \Twig_Environment($loader);
+        $this->twig = $twig;
     }
 
     /**

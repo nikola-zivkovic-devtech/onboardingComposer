@@ -22,10 +22,10 @@ switch ($routeInfo[0]) {
         $keys = array_keys($vars);
 
         if(!empty($vars)) {
-            $obj = new $controller($vars[$keys[0]]);
+            $obj = new $controller($vars[$keys[0]], $twig);
             $obj->renderView();
         } else {
-            $obj = new $controller();
+            $obj = new $controller($twig);
             $obj->renderView();
         }
 

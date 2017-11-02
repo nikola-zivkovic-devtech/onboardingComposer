@@ -11,9 +11,9 @@ class Hello extends Controller
 {
     private $name;
 
-    public function __construct($name)
+    public function __construct($name, $twig)
     {
-        parent::__construct();
+        parent::__construct($twig);
         $this->name = $name;
     }
 
