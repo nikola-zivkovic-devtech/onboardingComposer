@@ -3,6 +3,8 @@
 require_once '../bootstrap/bootstrap.php';
 
 use Devtech\Helpers\Request;
+use Devtech\Enums\NamespacePaths;
+
 
 $routeInfo = $dispatcher->dispatch(Request::getHttpMethod(), Request::getUri());
 
@@ -15,8 +17,17 @@ switch ($routeInfo[0]) {
         echo '405 Method Not Allowed';
         break;
     case FastRoute\Dispatcher::FOUND:
-        $handler = $routeInfo[1];
+        $controller = NamespacePaths::CONTROLLERS_PATH . $routeInfo[1];
         $vars = $routeInfo[2];
-        echo 'Call ' . $handler . ' handler.';
+        $keys = array_keys($vars);
+
+        if(!empty($vars)) {
+            $obj = new $controller($vars[$keys[0]], $twig);
+            $obj->renderView();
+        } else {
+            $obj = new $controller($twig);
+            $obj->renderView();
+        }
+
         break;
 }

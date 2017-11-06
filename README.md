@@ -11,5 +11,5 @@ Steps to run the app:
 Supported routes:
 /
 /index
-/about
 /hello/{name}
+/store/{item}
